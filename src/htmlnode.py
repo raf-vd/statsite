@@ -1,11 +1,10 @@
 from enum import Enum
 
 class HTMLTag(Enum):
-    H1, H2, H3, H4, H5, H6 = tuple([f"<h{x}>" for x in range(1,7) ])          # header opening tags
-    sH1, SH2, SH3, SH4, SH5, SH6 = tuple([f"</h{x}>" for x in range(1,7) ])   # header closing tags
-    P, SP = "<p>", "</p>"                                                     # paragrap tags
-    B, SB, I, SI, U, SU = "<b>", "</b>", "<i>", "</i>", "<u>", "</u>"         # bold, italic, underline
-    A, SA = "<a>", "</a>"                                                     # link
+    H1, H2, H3, H4, H5, H6 = tuple([f"<h{x}>" for x in range(1,7) ])        # header opening tags
+    P= "<p>"                                                                # paragrap tag
+    B, I, U = "<b>", "<i>", "<u>"                                           # bold, italic, underline
+    A = "<a>"                                                               # link
 
 class HTMLNode():
     def __init__(self, tag=None, value=None, children=None, props=None):
