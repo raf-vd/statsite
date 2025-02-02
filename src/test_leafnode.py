@@ -12,8 +12,10 @@ class TestLeafNode(unittest.TestCase):
         self.assertEqual(node1.to_html(),"<h1>This is a nice header (one), isn't it?</h1>")
         node1 = LeafNode(HTMLTag.B, "Some bold text perhaps?", None)
         self.assertEqual(node1.to_html(),"<b>Some bold text perhaps?</b>")
-        node1 = LeafNode(HTMLTag.A, "click me!", {"href": "https://www.google.com"})
+        node1 = LeafNode(HTMLTag.A, "click me!", {"href":"https://www.google.com"})
         self.assertEqual(node1.to_html(),'<a href="https://www.google.com">click me!</a>')
+        node1 = LeafNode(HTMLTag.IMG, " ", {"src":"public/kitten.jpg","alt":"cutie"})
+        self.assertEqual(node1.to_html(),'<img src="public/kitten.jpg" alt="cutie">')
 
 if __name__ == "__main__":
     unittest.main()

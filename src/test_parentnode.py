@@ -154,40 +154,7 @@ class TestParentNode(unittest.TestCase):
             ) 
         should_be = "<p><p><b>bold double nested</b><h1>head1</h1><u>u 1</u></p><p><h2>head2</h2><b>bold double nested</b>basic text</p></p>"
         self.assertEqual(node1.to_html(),should_be)
-        print(should_be)
-
-
 
 
 if __name__ == "__main__":
     unittest.main()
-
-# node = ParentNode(
-#     HTMLTag.P,
-#     [
-#         LeafNode(HTMLTag.B, "Bold text->"),
-#         LeafNode(None, "Normal text->"),
-#         ParentNode(
-#             HTMLTag.P,
-#             [
-#             LeafNode(HTMLTag.H1, "Hoe werken headertags eigenlijk?"),
-#             LeafNode(HTMLTag.U, "underlined tekst"),
-#             LeafNode(HTMLTag.A, "clickbait", {"href": "https://www.google.com"}),
-#             ],
-#         ),
-#         LeafNode(HTMLTag.I, "italic text->"),
-#         LeafNode(None, "Normal text"),
-#     ],
-# )
-# print(node.to_html())
-
-# node1 = ParentNode(
-#             HTMLTag.P,
-#             [
-#             LeafNode(HTMLTag.H1, "Hoe werken headertags eigenlijk?"),
-#             LeafNode(HTMLTag.U, "underlined tekst\n"),
-#             LeafNode(HTMLTag.A, "clickbait", {"href": "https://www.google.com"}),
-#             ],
-#         )
-
-# print(node1.to_html())
