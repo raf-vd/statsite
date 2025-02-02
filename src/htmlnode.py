@@ -13,6 +13,20 @@ class HTMLNode():
         self.children = children
         self.props = props
 
+    def add_tag(self):
+        match self.tag:
+            case _ if self.tag in [HTMLTag.H1, HTMLTag.H2, HTMLTag.H3, HTMLTag.H4, HTMLTag.H5, HTMLTag.H6,
+                                   HTMLTag.P, 
+                                   HTMLTag.B, HTMLTag.I, HTMLTag.U]: return self.add_basic_tag()
+            case HTMLTag.A: return self.add_link_tag()
+            case _: raise ValueError(f"{self.tag} is not a constant in the HTMLTag Enum")
+
+    def add_basic_tag(self):
+        return f"{self.tag.value}{self.value}{self.tag.value.replace("<","</")}"
+
+    def add_link_tag(self):
+        return self.tag.value.replace(">", self.props_to_html() + ">") + self.value + self.tag.value.replace("<","</")
+        
     def to_html(self):
         raise NotImplementedError("Child classes will override this method to render themselves as HTML")
 
@@ -34,17 +48,3 @@ class HTMLNode():
         out.append("  }")
         return "\n".join(out)
 
-# hn=node1 = HTMLNode(HTMLTag.SA, "closing link tag", None, {"href": "https://www.google.com","target": "_blank",})
-# print(hn)
-# print(f"  {{\n    HTMLNode\n\tTag: </a>\n\tValue: value of header 1\n\tChildren: None\n\tProps:  href=\"https://www.google.com\" target=\"_blank\"\n  }}")
-# print(f"  {{\n    HTMLNode\n\tTag: <h1>\n\tValue: value of header 1\n\tChildren: None\n\tProps: \n  }}")
-# hn=HTMLNode(HTMLTag.H1, "myTagValue", children=None, props={"href": "https://www.google.com","target": "_blank",})
-# node1 = HTMLNode(HTMLTag.H1, "value of header 1", None, None)
-# print(hn)
-# dict = {
-#     "href": "https://www.google.com",
-#     "target": "_blank",
-#     }
-# print('***')
-# for key in dict:
-#     print(f"{key}={dict[key]}")
