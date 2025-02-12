@@ -135,20 +135,14 @@ def include_line_in_tag(block, tag):
 # """
 
 # md = """
-# - This is a list
-# - with items
-# - and *more* items
+# ```
+# This is a code block
+# ```
 
-# 1. This is an `ordered` list
-# 2. with items
-# 3. and more items
+# this is paragraph text
 
 # """
 # html_final = markdown_to_html_node(md)
-# # for pn in pnlist:
-# #     print(pn)
-
-
 # print(html_final.to_html())
 
 

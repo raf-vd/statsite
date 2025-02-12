@@ -79,7 +79,3 @@ def text_to_textnodes(text):
     nodes = split_nodes_link(nodes)
     return nodes
 
-# text = "This is **text** with an *italic* word and a `code block` and an ![obi wan image](https://i.imgur.com/fJRm4Vk.jpeg) and a [link](https://boot.dev)"
-# nodes = text_to_text_nodes(text)
-# for node in nodes:
-#     print(node)
